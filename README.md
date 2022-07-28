@@ -1,6 +1,6 @@
 ## Nighthold Launcher by CyberMist2
 
-![Nighthold Logo](/github_res/nighthold_logo_110x110.png)
+  - API https://github.com/anonymous33rus/Nighthold.pro-launcher-api-2.0
 
 ### Visual Studio Nugget Packages
   - Newtonsoft.Json >= 12.0.3
