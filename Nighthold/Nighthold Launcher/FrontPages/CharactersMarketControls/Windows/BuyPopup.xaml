@@ -1,0 +1,163 @@
+﻿<Window x:Class="Nighthold_Launcher.FrontPages.CharactersMarketControls.Windows.BuyPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nighthold_Launcher.FrontPages.CharactersMarketControls.Windows"
+        mc:Ignorable="d"
+        Title="BuyPopup" Height="388.177" Width="415" WindowStartupLocation="CenterOwner" WindowStyle="None" ResizeMode="NoResize" Background="#FF1A1C23" BorderBrush="#26FFFFFF" BorderThickness="1" KeyUp="Window_KeyUp" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <SolidColorBrush x:Key="RadioButton.Static.Background" Color="#FF001A3D"/>
+        <SolidColorBrush x:Key="RadioButton.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="RadioButton.MouseOver.Background" Color="#FF022553"/>
+        <SolidColorBrush x:Key="RadioButton.MouseOver.Border" Color="#FF5593FF"/>
+        <SolidColorBrush x:Key="RadioButton.MouseOver.Glyph" Color="#FF009CFF"/>
+        <SolidColorBrush x:Key="RadioButton.Disabled.Background" Color="#FFE6E6E6"/>
+        <SolidColorBrush x:Key="RadioButton.Disabled.Border" Color="#FFBCBCBC"/>
+        <SolidColorBrush x:Key="RadioButton.Disabled.Glyph" Color="#FF707070"/>
+        <SolidColorBrush x:Key="RadioButton.Pressed.Background" Color="#FFD9ECFF"/>
+        <SolidColorBrush x:Key="RadioButton.Pressed.Border" Color="#FF3C77DD"/>
+        <SolidColorBrush x:Key="RadioButton.Pressed.Glyph" Color="#FF212121"/>
+        <SolidColorBrush x:Key="RadioButton.Static.Glyph" Color="#FF212121"/>
+        <Style x:Key="RadioButtonCurrency" TargetType="{x:Type RadioButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource RadioButton.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource RadioButton.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="radioButtonBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="100" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,1,2,1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <Grid x:Name="markGrid" Margin="2">
+                                    <Ellipse x:Name="optionMark" MinWidth="6" MinHeight="6" Opacity="0">
+                                        <Ellipse.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF004886" Offset="0"/>
+                                                <GradientStop Color="#FF009BFF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Grid>
+                            </Border>
+                            <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasContent" Value="true">
+                                <Setter Property="FocusVisualStyle" Value="{StaticResource OptionMarkFocusVisual}"/>
+                                <Setter Property="Padding" Value="4,-1,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="radioButtonBorder" Value="{StaticResource RadioButton.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="radioButtonBorder" Value="{StaticResource RadioButton.MouseOver.Border}"/>
+                                <Setter Property="Fill" TargetName="optionMark" Value="{StaticResource RadioButton.MouseOver.Glyph}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="radioButtonBorder" Value="{StaticResource RadioButton.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="radioButtonBorder" Value="{StaticResource RadioButton.Disabled.Border}"/>
+                                <Setter Property="Fill" TargetName="optionMark" Value="{StaticResource RadioButton.Disabled.Glyph}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="Opacity" TargetName="optionMark" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="{x:Null}">
+                                <Setter Property="Opacity" TargetName="optionMark" Value="0.56"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Grid VerticalAlignment="Top" Height="35" Background="#00000000">
+                <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#FF8D8D8D" BorderBrush="{x:Null}" Background="#00000000" Style="{DynamicResource ControlBoxButtonClose}" FontFamily="Arial" FontSize="14" Width="36" Padding="0" Height="26" Click="CloseButton_Click"/>
+                </StackPanel>
+                <Label Content="Confirm your purchase for" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Background="{x:Null}" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Foreground="#FFCBCBCB"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                <TextBlock Text="Character" VerticalAlignment="Center" TextAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="15" Foreground="#FFC9C9C9" FontWeight="Bold" Margin="0,0,7,0"/>
+                <TextBlock x:Name="CharName" TextWrapping="Wrap" Text="??" VerticalAlignment="Center" TextAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="15" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                <TextBlock Text="Realm" VerticalAlignment="Center" TextAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="15" Foreground="#FFC9C9C9" FontWeight="Bold" Margin="0,0,7,0"/>
+                <TextBlock x:Name="RealmName" TextWrapping="Wrap" Text="???" VerticalAlignment="Center" TextAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="15" Foreground="#FFFF8383" FontWeight="Bold"/>
+            </StackPanel>
+            <Border BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="100" Margin="0,10,0,0">
+                <Image x:Name="RaceImg" Width="100"  Height="100" Source="/Nighthold Launcher;component/Assets/Race Icons/Charactercreate-races_lightforged-female.png" Stretch="Fill"/>
+            </Border>
+            <StackPanel Margin="0,15,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Level" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="#FFC9C9C9" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" HorizontalAlignment="Center" TextAlignment="Center"/>
+                    <TextBlock x:Name="CharLevel" Text="80" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="#FFDAD281" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" HorizontalAlignment="Center" TextAlignment="Center" Margin="4,0,0,0"/>
+                </StackPanel>
+                <TextBlock x:Name="CharClass" Text="Demon Hunter" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="#FF8F42FF" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" HorizontalAlignment="Center" TextAlignment="Center" Margin="5,0,0,0"/>
+                <TextBlock x:Name="CharRace" Text="Lightforged" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="#FFC9C9C9" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" HorizontalAlignment="Center" TextAlignment="Center" Margin="5,0,0,0"/>
+                </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Margin="0,15,0,0">
+                <StackPanel x:Name="SPGoldCoin" Orientation="Horizontal" VerticalAlignment="Center" MaxWidth="125" Margin="0,0,0,2">
+                    <Image Height="18" Source="/Nighthold Launcher;component/Assets/Shop Assets/cartoon_gold_coin.png" Width="18"/>
+                    <TextBlock x:Name="PriceDP" Text="0" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" TextTrimming="CharacterEllipsis" MaxWidth="80" Margin="5,0,0,0"/>
+                    <TextBlock Text="DP" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" TextTrimming="CharacterEllipsis" Margin="3,0,0,0" FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="BtnConfirm" Content="CONFIRM" Margin="0,10,0,0" HorizontalAlignment="Center" BorderBrush="#FF393B44" Background="#FF131212" Foreground="#FF8B8B8B" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="16" FontWeight="Bold" Padding="75,10" Style="{DynamicResource BtnConfirmPurchase}" Cursor="Hand" Click="BtnConfirm_Click">
+                <Button.Resources>
+                    <Style x:Key="BtnConfirmPurchase" TargetType="{x:Type Button}">
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                        <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsDefaulted" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Background" TargetName="border" Value="#FF3C3C3C"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                        </Trigger>
+                                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ColorAnimation To="#FF00204D" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                    <ColorAnimation To="#FFFFFFFF" Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ColorAnimation To="#FF131212" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                    <ColorAnimation To="#FF8B8B8B" Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock x:Name="ResponseBlock" Margin="0,10,0,20" Foreground="White" HorizontalAlignment="Center" MaxWidth="500" TextTrimming="CharacterEllipsis" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Text="..."/>
+        </StackPanel>
+    </Grid>
+</Window>

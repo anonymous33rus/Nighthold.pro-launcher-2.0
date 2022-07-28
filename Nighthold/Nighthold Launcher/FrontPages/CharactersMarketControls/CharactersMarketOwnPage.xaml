@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Nighthold_Launcher.FrontPages.CharactersMarketControls.CharactersMarketOwnPage" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Spinners="clr-namespace:Nighthold_Launcher.Spinners" 
+             xmlns:Childs="clr-namespace:Nighthold_Launcher.FrontPages.CharactersMarketControls.Childs"
+             mc:Ignorable="d" d:DesignHeight="660" d:DesignWidth="860">
+    <Grid>
+        <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="20,0,0,0">
+            <Button x:Name="BtnReturnHome" Content="← RETURN" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="open sans" FontSize="16" FontWeight="Bold" Background="{x:Null}" Foreground="#FFC5C3C2" BorderBrush="{x:Null}" Style="{DynamicResource MainPageTopLink}" Cursor="Hand" Click="BtnReturnHome_Click"/>
+        </StackPanel>
+        <Grid Margin="0,55,0,0">
+            <Grid Height="40" VerticalAlignment="Top" Margin="4,0,21,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="MY CHARACTERS MARKET LISTING" Foreground="#FFBBBBBB" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" FontWeight="ExtraBlack"/>
+            </Grid>
+            <!--TABLE ROWS-->
+            <ScrollViewer Margin="0,45,0,0" Style="{DynamicResource ScrollViewerOne}">
+                <StackPanel x:Name="SPMarketRows" Orientation="Vertical">
+                    <Spinners:BlueSpinnerOne Width="20" Height="20" Margin="0,50,0,0"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,208 @@
+﻿<Window x:Class="Nighthold_Launcher.AdminPanelControls.Windows.ArticleEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nighthold_Launcher.AdminPanelControls.Windows"
+        mc:Ignorable="d"
+        Title="ArticleEditor" Height="450" Width="400" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Background="#FF1A1C23" ShowInTaskbar="False" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        <StackPanel>
+            <Border Height="40" Background="#FF021217" CornerRadius="3">
+                <TextBlock x:Name="WindowTitle" TextWrapping="Wrap" Text="Редактор статьи" Foreground="#FFA8A8A8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" FontWeight="SemiBold" TextAlignment="Center" Padding="0,12,0,0"/>
+            </Border>
+            <Border Height="200" BorderBrush="#FF021217" BorderThickness="2" Margin="5,5,5,5">
+                <Image x:Name="ArticleImage" Stretch="UniformToFill" Source="/Nighthold Launcher;component/Assets/Expansion Backgrounds/expansion_bg_mop.png"/>
+            </Border>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="ImageUrl" Text="Image Url" Margin="5" Background="#FF021217" BorderBrush="#FF282E3E" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="5" Width="304" Foreground="#FF616161" Style="{DynamicResource TextBoxImageUrl}" GotFocus="ImageUrl_GotFocus" LostFocus="ImageUrl_LostFocus" MaxLines="1">
+                    <TextBox.Resources>
+                        <Style x:Key="TextBoxImageUrl" TargetType="{x:Type TextBox}">
+                            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="AllowDrop" Value="true"/>
+                            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+                            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TextBox}">
+                                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                                            </Trigger>
+                                            <!--<Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                                            </Trigger>-->
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                                        <Condition Property="IsSelectionActive" Value="false"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                                </MultiTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <Button x:Name="BtnImagePreview" Content="Preview" Width="75" Margin="0,5,5,5" Background="#FF031B23" BorderBrush="#FF282E3E" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Foreground="#FFA8A8A8" Style="{DynamicResource ButtonStylePreview}" Cursor="Hand" Click="BtnImagePreview_Click">
+                    <Button.Resources>
+                        <Style x:Key="ButtonStylePreview" TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="1"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsDefaulted" Value="true">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                            </Trigger>
+                                            <!--<Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                            </Trigger>-->
+                                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation To="#FF072732" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                        <ColorAnimation To="#FFC9C9C9" Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="Button.MouseLeave">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation To="#FF031B23" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                        <ColorAnimation To="#FFA8A8A8" Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+            <TextBox x:Name="ArticleTitle" Text="Title" Margin="5,10,5,5" Background="#FF021217" BorderBrush="#FF282E3E" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="5" Foreground="#FF616161" Style="{DynamicResource TextBoxImageUrl}" GotFocus="ArticleTitle_GotFocus" LostFocus="ArticleTitle_LostFocus" MaxLines="1">
+                <TextBox.Resources>
+                    <Style x:Key="TextBoxImageUrl" TargetType="{x:Type TextBox}">
+                        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        <Setter Property="AllowDrop" Value="true"/>
+                        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+                        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                                        </Trigger>
+                                        <!--<Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                                            </Trigger>-->
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                                    <Condition Property="IsSelectionActive" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                            </MultiTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox x:Name="ArticleUrl" Text="Redirect Url" Margin="5,10,5,5" Background="#FF021217" BorderBrush="#FF282E3E" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="5" Foreground="#FF616161" Style="{DynamicResource TextBoxImageUrl}" GotFocus="ArticleUrl_GotFocus" LostFocus="ArticleUrl_LostFocus" MaxLines="1">
+                <TextBox.Resources>
+                    <Style x:Key="TextBoxImageUrl" TargetType="{x:Type TextBox}">
+                        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        <Setter Property="AllowDrop" Value="true"/>
+                        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+                        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                                        </Trigger>
+                                        <!--<Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                                            </Trigger>-->
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                                    <Condition Property="IsSelectionActive" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                            </MultiTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Grid Width="360" Margin="0,20,0,10">
+                <Button x:Name="BtnYes" Content="ОК" Width="104" Height="34" BorderBrush="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Style="{DynamicResource CWButtonYes}" Click="BtnYes_Click" HorizontalAlignment="Center" Margin="0,0,125,0"/>
+                <Button x:Name="BtnNo" IsCancel="True" Content="ОТМЕНА" Width="104" Height="34" BorderBrush="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Style="{DynamicResource CWButtonNo}" HorizontalAlignment="Center" Margin="125,0,0,0"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

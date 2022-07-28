@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Nighthold_Launcher.GMPanelControls.Childs.BanRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nighthold_Launcher.GMPanelControls.Childs"
+             mc:Ignorable="d" d:DesignWidth="980" MinHeight="40" Foreground="White" Background="#FF17191D" Margin="0,0,0,15" Loaded="UserControl_Loaded">
+    <WrapPanel>
+        <StackPanel Height="40" VerticalAlignment="Top" Width="980" Orientation="Horizontal">
+            <TextBlock Text="Тип бана:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="10,0,4,0"/>
+            <TextBlock x:Name="BanType" Text="Character" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFAEAEAE" Margin="0,0,5,0"/>
+            <StackPanel x:Name="SPCharacter" Orientation="Horizontal">
+                <Border Height="20" BorderBrush="#26CFCFCF" BorderThickness="1,0,1,0" Margin="10,0"/>
+                <TextBlock Text="Персонаж:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="5,0,4,0"/>
+                <TextBlock x:Name="CharName" Text="Unknown" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFDA4E4E" Margin="0,0,5,0" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel x:Name="SPAccount" Orientation="Horizontal" Visibility="Collapsed">
+                <Border Height="20" BorderBrush="#26CFCFCF" BorderThickness="1,0,1,0" Margin="10,0"/>
+                <TextBlock Text="Аккаунт:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="0,0,3,0"/>
+                <TextBlock x:Name="AccName" Text="Unknown" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFDA4E4E" FontWeight="Bold"/>
+            </StackPanel>
+            <Border Height="20" BorderBrush="#26CFCFCF" BorderThickness="1,0,1,0" Margin="10,0"/>
+            <TextBlock Text="Забанен:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="5,0,4,0"/>
+            <TextBlock x:Name="BanDate" Text="01 January 1999" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFAEAEAE" Margin="0,0,5,0"/>
+            <Border Height="20" BorderBrush="#26CFCFCF" BorderThickness="1,0,1,0" Margin="10,0"/>
+            <TextBlock Text="Забанен до:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="5,0,4,0"/>
+            <TextBlock x:Name="UnbanDate" Text="12 January 2021" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFDA4E4E"/>
+
+           <!-- <StackPanel x:Name="SPRealm" Orientation="Horizontal">
+                <Border Width="2" Height="20" BorderBrush="#26CFCFCF" BorderThickness="1,0,1,0" Margin="10"/>
+                <TextBlock Text="Realm:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Margin="5,13.1,5,11.9" Foreground="#FFCFCFCF"/>
+                <TextBlock x:Name="RealmName" Text="N/A" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFDCFF00" Margin="0,13.1,10,11.9"/>
+            </StackPanel>-->
+        </StackPanel>
+        <Border BorderBrush="#26CFCFCF" Height="1" BorderThickness="0,1,0,0" Width="900" Margin="8,0,50,0"/>
+        <TextBlock Text="Забанил:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="10,10,4,0"/>
+        <TextBlock x:Name="BannedBy" Text="Unknown" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFAEAEAE" Margin="0,10,5,0" Width="850"/>
+        <TextBlock Text="Причина:" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="10,10,4,10"/>
+        <TextBlock x:Name="BanReason" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Text="N/A" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFAEAEAE" Margin="0,10" Width="850"/>
+        <Button x:Name="BtnUnban" Height="25" Background="#FF444141" BorderBrush="#BF707070" Foreground="#FFCFCFCF" Content="Снять бан" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Padding="5,1" MinWidth="80" VerticalAlignment="Center" Margin="10,0,0,10" Cursor="Hand" Style="{DynamicResource TicketHandleButton}" Click="BtnUnban_Click"/>
+    </WrapPanel>
+</UserControl>

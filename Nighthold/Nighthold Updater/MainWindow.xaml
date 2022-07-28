@@ -1,0 +1,114 @@
+﻿<Window x:Class="Nighthold_Updater.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nighthold_Updater"
+        mc:Ignorable="d"
+        Title="Средство обновления" Height="399.833" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Window_Loaded">
+    <Grid Background="#FF232323">
+        <Border Height="40" Background="#FF232323" VerticalAlignment="Top" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <Label Content="Средство обновления" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Background="{x:Null}" Foreground="LightGray" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans"/>
+        </Border>
+        <MediaElement x:Name="wpmedia" LoadedBehavior="Play" Source="Assets/sylvanas01trim.mp4" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Volume="0.1" Height="340" Width="580">
+            <MediaElement.Triggers>
+                <EventTrigger RoutedEvent="MediaElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <MediaTimeline Source="Assets/sylvanas01trim.mp4" Storyboard.TargetName="wpmedia" RepeatBehavior="Forever" />
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </MediaElement.Triggers>
+        </MediaElement>
+        <!--PROGRESS BAR-->
+        <ProgressBar x:Name="pbStatus" Height="35" VerticalAlignment="Bottom" Background="#FF363636" BorderBrush="{x:Null}" Margin="0" Width="600" Foreground="#FF292929"/>
+        <!--RETRIEVING DOWNLOAD LIST PLACEHOLDER-->
+        <StackPanel x:Name="SPPlaceholder" VerticalAlignment="Bottom" Height="35" MinWidth="50" Visibility="Visible">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,9,0,0">
+                <TextBlock x:Name="PlaceHorderText" Text="Получение списка обновлений, пожалуйста подождите ..." FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="#FFE5D5C2" Background="{x:Null}" Margin="0,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+        <!--PROGRESS STATUS-->
+        <StackPanel x:Name="SPProgressStatus" VerticalAlignment="Bottom" Height="35" MinWidth="50" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,9,0,0">
+                <TextBlock Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="#FFFF8A00" Background="{x:Null}" Margin="0,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock Text="(Downloading update" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="#FFE5D5C2" Background="{x:Null}" Margin="5,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock x:Name="FileFirstIndex" Text="1" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="White" Background="{x:Null}" Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock Text="of" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="#FFE5D5C2" Background="{x:Null}" Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock x:Name="FileSecondIndex" Text="1" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="White" Background="{x:Null}" Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock Text=")" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="#FFE5D5C2" Background="{x:Null}" Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock Text="-" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="#FFE5D5C2" Background="{x:Null}" Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock x:Name="DownloadingFileName" Text="Unknown" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="#FFF3FF00" Background="{x:Null}" Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock Text="@" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="#FFE5D5C2" Background="{x:Null}" Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock x:Name="DownloadSpeed" Text="0 MB/s" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="12" Foreground="#FFFF8A00" Background="{x:Null}" Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+
+            </StackPanel>
+        </StackPanel>
+        <!--CANCEL BUTTON-->
+        <Button x:Name="BtnCancel" Content="Выход" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="/Nighthold Updater;component/Assets/Font/#Open Sans" FontSize="14" FontWeight="Bold" Padding="15,7,15,5" Margin="0,0,0,50" Background="#FF422D2D" Foreground="#FFD8D8D8" Cursor="Hand" Click="BtnCancel_Click" Style="{DynamicResource ButtonStyleCancel}">
+            <Button.Resources>
+                <Style x:Key="FocusVisual">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+                <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+                <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+                <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+                <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+                <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+                <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+                <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+                <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+                <Style x:Key="ButtonStyleCancel" TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                    <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="1"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsDefaulted" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                    </Trigger>
+                                    <EventTrigger RoutedEvent="Button.MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation To="#FF6E0000" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="Button.MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation To="#FF564741" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Window>

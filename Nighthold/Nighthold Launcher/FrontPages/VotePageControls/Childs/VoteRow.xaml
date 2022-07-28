@@ -1,0 +1,79 @@
+﻿<UserControl xmlns:Spinners="clr-namespace:Nighthold_Launcher.Spinners"  x:Class="Nighthold_Launcher.FrontPages.VotePageControls.Childs.VoteRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nighthold_Launcher.FrontPages.VotePageControls.Childs"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="835" Loaded="UserControl_Loaded">
+    <Grid Height="80" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" BorderThickness="0,0,1,0">
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="VoteSiteName" Content="vote site name" Background="{x:Null}" Foreground="#FFDADADA" Padding="0" FontSize="14" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="{x:Null}" Cursor="Hand" Style="{DynamicResource ButtonStylePlayerName}" Click="VoteSiteName_Click" FontWeight="SemiBold">
+                    <Button.Resources>
+                        <Style x:Key="ButtonStylePlayerName" TargetType="{x:Type Button}">
+                            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="1"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsDefaulted" Value="true">
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="Yellow"/>
+                                            </Trigger>
+                                            <!--<Trigger Property="IsPressed" Value="true">
+                                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                            </Trigger>-->
+                                            <!--<Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                            </Trigger>-->
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </WrapPanel>
+        </Border>
+        <Border Grid.Column="1" BorderThickness="1,0">
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock x:Name="VoteCooldown" Text="calculating.." Background="{x:Null}" Foreground="#FF8F8F8F" Padding="0" FontSize="14" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+            </WrapPanel>
+        </Border>
+        <Border Grid.Column="2" BorderThickness="1,0">
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid Width="88">
+                    <Spinners:BlueSpinnerTwo x:Name="VoteImageSpinner" Width="20"/>
+                    <Image x:Name="VoteImage" Cursor="Hand" Margin="0" Width="88" MinHeight="30" MouseLeftButtonUp="VoteImage_MouseLeftButtonUp"/>
+                </Grid>
+            </WrapPanel>
+        </Border>
+        <Border Grid.Column="3" BorderThickness="1,0">
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock x:Name="VotePointsReward" Text="0" Background="{x:Null}" Foreground="#FF8F8F8F" Padding="0" FontSize="14" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+            </WrapPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Nighthold_Launcher.UserPanelControls.Childs.CharacterRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="42" d:DesignWidth="262" Height="42" VerticalAlignment="Top" Loaded="UserControl_Loaded" Padding="0,3,0,0" Margin="0,5,0,0">
+    <Grid Height="42" Width="262">
+        <Image x:Name="RaceIcon" HorizontalAlignment="Left" Height="32" Margin="0,5,0,0" VerticalAlignment="Top" Width="32" Stretch="UniformToFill" Source="/Nighthold Launcher;component/Assets/Race Icons/Charactercreate-races_darkirondwarf-male.png"/>
+        <TextBlock x:Name="CharName" HorizontalAlignment="Left" Margin="40,5,0,0" Text="Name" VerticalAlignment="Top" Foreground="White" FontSize="14" TextTrimming="CharacterEllipsis" Width="212" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans"/>
+        <RichTextBox HorizontalAlignment="Left" Margin="34,23,0,0" VerticalAlignment="Top" Width="218" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF838383" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" BorderThickness="0" SelectionBrush="#FFB94646">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="Уровень"/>
+                    <Run x:Name="CharLevel" Text="??"/>
+                    <Run x:Name="RaceName" Text="??"/>
+                    <Run x:Name="ClassName" Text="??"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="Nighthold_Launcher.GMPanelControls.Childs.PlayerInfoRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nighthold_Launcher.GMPanelControls.Childs"
+             mc:Ignorable="d" MinHeight="40" Foreground="White" Loaded="UserControl_Loaded" Height="466" Width="955">
+    <Grid>
+        <Image x:Name="FactionBackground" Source="/Nighthold Launcher;component/Assets/pinfo/pinfo_horde_bg.jpg" Opacity="0.5" Stretch="Fill"/>
+        <Label Content="Aктивность" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Margin="28,7,0,0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28,76,0,0">
+            <Image HorizontalAlignment="Center" Height="14" Width="14" Source="/Nighthold Launcher;component/Assets/Menu Icons/realm_pending.png" RenderTransformOrigin="0.5,0.5" Margin="0,0,5,1">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <TextBlock Text="Общее время игры:" TextWrapping="Wrap" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Foreground="#FFB8B8B8"/>
+            <TextBlock x:Name="TotalPlayedTime" Text="12d 10h 44m 30s" TextWrapping="Wrap" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Margin="4,0,0,0" Foreground="#FF00FF17"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28,43,0,0">
+            <Image HorizontalAlignment="Center" Height="14" Width="14" Source="/Nighthold Launcher;component/Assets/Menu Icons/realm_pending.png" RenderTransformOrigin="0.5,0.5" Margin="0,0,5,1">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <TextBlock Text="Последний раз выходил:" TextWrapping="Wrap" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Foreground="#FFB8B8B8"/>
+            <TextBlock x:Name="LastTimeLogout" Text="18 January 2021" TextWrapping="Wrap" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Margin="4,0,0,0" Foreground="#FFDC8484"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,15,0,0">
+            <StackPanel Width="30" Height="65" Orientation="Vertical" VerticalAlignment="Bottom"/>
+            <Border Width="100" Height="100" CornerRadius="2" BorderThickness="2" BorderBrush="#FF363C47" Margin="5,0">
+                <Image x:Name="RaceAvatar" Stretch="Fill" Source="/Nighthold Launcher;component/Assets/Race Icons/Charactercreate-races_undead-female.png"/>
+            </Border>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <Border Width="30" Height="30" CornerRadius="2" BorderThickness="1" BorderBrush="#FF363C47" VerticalAlignment="Bottom" Margin="0,0,0,5">
+                    <Image x:Name="ClassIcon" Stretch="Fill" Source="/Nighthold Launcher;component/Assets/Class Icons/Charactercreate-class_mage.png"/>
+                </Border>
+                <Border Width="30" Height="30" CornerRadius="2" BorderThickness="1" BorderBrush="#FF363C47" VerticalAlignment="Bottom" Background="#FF22252B">
+                    <TextBlock x:Name="PlayerLevel" TextTrimming="CharacterEllipsis" Text="80" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="16" Foreground="White"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="BtnKIck" Content="Кик" Margin="0,143,143,0" Background="#FF22252B" Foreground="White" BorderBrush="#FF363C47" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Grid.IsSharedSizeScope="True" Width="100" Style="{DynamicResource PlayerInfoButton}" Click="BtnKIck_Click"/>
+        <Button x:Name="BtnUnstuck" Content="Починить" Margin="0,143,27,0" Background="#FF22252B" Foreground="White" BorderBrush="#FF363C47" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Grid.IsSharedSizeScope="True" Width="100" Style="{DynamicResource PlayerInfoButton}" Click="BtnUnstuck_Click"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,125,0,0">
+            <!--<Ellipse Fill="Red" Height="10" Stroke="Black" Width="10" VerticalAlignment="Top" Margin="0,3,5,0"/>-->
+            <TextBlock x:Name="AccountRank" Text="[Player]" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Normal" FontSize="14" Margin="0,0,5,0" />
+            <TextBlock x:Name="OnlineStatus" Text="(Offline)" Foreground="Red" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Normal" FontSize="14" Margin="0,0,5,0" />
+            <TextBlock x:Name="PlayerName" Text="Uknown" Foreground="#FF00B9FF" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" FontSize="14" />
+            <TextBlock x:Name="GuildName" Text="&lt;?&gt;" Foreground="#FF00FF3A" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Margin="5,0,0,0" />
+        </StackPanel>
+        <StackPanel x:Name="SPRealmName" Orientation="Horizontal" Margin="0,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Text="Realm:" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+            <TextBlock x:Name="RealmName" Text="Uknown" Foreground="#FFDCFF00" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Margin="5,0,0,0"/>
+        </StackPanel>
+        <Border VerticalAlignment="Top" HorizontalAlignment="Center" Width="900" Background="#FF22252B" Height="2" Margin="0,180,0,0"/>
+        <Border VerticalAlignment="Top" HorizontalAlignment="Center" Width="2" Background="#FF22252B" Height="269" Margin="289,187,664,0"/>
+        <Label Content="Валюта и PvP" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Margin="28,189,0,0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Border VerticalAlignment="Top" HorizontalAlignment="Center" Width="256" Background="#FF22252B" Height="2" Margin="28,222,671,0"/>
+        <StackPanel Orientation="Vertical" Margin="28,234,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Image Source="/Nighthold Launcher;component/Assets/WoW Gossip Icons/Vendorgossipicon.png" Width="14" Height="14" VerticalAlignment="Center"/>
+                <Label Content="Богатство:" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+                <Label x:Name="MoneyGold" Content="140.000" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+                <Image Source="/Nighthold Launcher;component/Assets/WoW Currency/Gold.png" Width="14" Height="14"/>
+                <Label x:Name="MoneySilver" Content="90" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+                <Image Source="/Nighthold Launcher;component/Assets/WoW Currency/Silver.png" Width="14" Height="14"/>
+                <Label x:Name="MoneyCopper" Content="20" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+                <Image Source="/Nighthold Launcher;component/Assets/WoW Currency/Copper.png" Width="14" Height="14"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+                <Image Source="/Nighthold Launcher;component/Assets/WoW Currency/ArenaPoints.png" Width="14" Height="14" VerticalAlignment="Center"/>
+                <Label Content="Очки арены:" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+                <Label x:Name="ArenaPoints" Content="45.000" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+                <Image Source="/Nighthold Launcher;component/Assets/WoW Currency/AllianceHonorPoints.png" Width="14" Height="14" VerticalAlignment="Center"/>
+                <Label Content="Очки чести:" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+                <Label x:Name="HonorPoints" Content="45.000" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+                <Label Content="Всего убийств:" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+                <Label x:Name="TotalKills" Content="1150" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+                <Label Content="Убийств сегодня:" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+                <Label x:Name="TodayKills" Content="40" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+                <Label Content="Убийств вчера:" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+                <Label x:Name="YesterdayKills" Content="0" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="310,189,0,0" VerticalAlignment="Top">
+            <Label Content="Аккаунт:" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="AccountName" Content="??" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+            <Label Content="ID:" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="AccountID" Content="0" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+            <Label Content="Бонусы:" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="VotePoints" Content="0" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+            <Label Content="Голосование:" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="DonatePoints" Content="0" Background="{x:Null}" Foreground="#FFB8B8B8" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="0,5,5,5"/>
+        </StackPanel>
+        <Border VerticalAlignment="Top" HorizontalAlignment="Center" Width="632" Background="#FF22252B" Height="2" Margin="296,222,27,0"/>
+        <Label Content="Логи банов|мутов" Background="{x:Null}" Foreground="White" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Margin="310,234,0,0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="180" Margin="310,266,0,0" VerticalAlignment="Top" Width="618" Style="{DynamicResource ScrollViewerTwo}">
+            <StackPanel x:Name="SPBanMuteLogs"/>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

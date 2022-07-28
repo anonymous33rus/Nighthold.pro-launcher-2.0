@@ -1,0 +1,16 @@
+/Nighthold/Nighthold Launcher/obj
+/Nighthold/Nighthold Launcher/bin
+/Nighthold/Nighthold Login/obj
+/Nighthold/Nighthold Login/bin
+/Nighthold/bin
+/Nighthold/AuthHandler/bin
+/Nighthold/CharHandler/bin
+/Nighthold/CharHandler/obj
+/Nighthold/AuthHandler/obj
+/Nighthold/WebHandler/obj
+/Nighthold/WebHandler/bin
+/Nighthold/Nighthold Updater/obj
+/Nighthold/Nighthold Updater/bin
+/Nighthold/Nighthold Launcher Setup/Debug
+/Nighthold/Nighthold Launcher Setup/Release
+Nighthold/.vs

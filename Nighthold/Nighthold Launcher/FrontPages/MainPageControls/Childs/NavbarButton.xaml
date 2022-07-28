@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Nighthold_Launcher.FrontPages.MainPageControls.Childs.NavbarButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="64" d:DesignWidth="65" Loaded="UserControl_Loaded">
+    <Button x:Name="NavButton" Content="" Width="65" Height="64" Foreground="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource NavbarButtonExpansion}" Cursor="Hand" Click="NavButton_Click">
+        <Button.Background>
+            <ImageBrush ImageSource="/Nighthold Launcher;component/Assets/nav_wow_icon.png" Stretch="None"/>
+        </Button.Background>
+    </Button>
+</UserControl>

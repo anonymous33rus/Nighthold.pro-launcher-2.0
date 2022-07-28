@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="Nighthold_Launcher.AdminPanelControls.Childs.NewsExpansionArticle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nighthold_Launcher.AdminPanelControls.Childs"
+             mc:Ignorable="d" 
+             Width="340" Height="200" Background="#72030406" Margin="20,0,0,20" Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel>
+            <Grid Height="160">
+                <Image x:Name="ArticleImage" Stretch="UniformToFill"/>
+                <TextBlock x:Name="ArticleDate" HorizontalAlignment="Left" Text="Unknown" VerticalAlignment="Bottom" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Foreground="White" TextTrimming="CharacterEllipsis" Background="#72000000" Padding="7,5" Margin="10,0,0,37" MaxWidth="320"/>
+                <TextBlock x:Name="ArticleTitle" HorizontalAlignment="Center" Text="Title" VerticalAlignment="Bottom" Width="320" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Foreground="Yellow" TextTrimming="CharacterEllipsis" Background="#72000000" Padding="7,5" Margin="0,0,0,5"/>
+            </Grid>
+            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="BtnArticleEdit" Content="" HorizontalAlignment="Center" BorderBrush="{x:Null}" Width="20" Height="20" Cursor="Hand" Style="{DynamicResource ButtonStyleEdit}" Click="BtnArticleEdit_Click">
+                        <Button.Resources>
+                            <ImageBrush x:Key="BtnNewsEditH" ImageSource="/Nighthold Launcher;component/Assets/NewsManager/news_edit_icon_h.png" Stretch="Uniform"/>
+                            <Style x:Key="ButtonStyleEdit" TargetType="{x:Type Button}">
+                                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                                <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="Padding" Value="1"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsDefaulted" Value="true">
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                    <Setter Property="Background" TargetName="border" Value="{DynamicResource BtnNewsEditH}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Nighthold Launcher;component/Assets/NewsManager/news_edit_icon_a.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="BtnArticleDelete" Content="" HorizontalAlignment="Center" Margin="20,0,0,0" BorderBrush="{x:Null}" Width="20" Height="20" Cursor="Hand" Style="{DynamicResource ButtonStyleDelete}" Click="BtnArticleDelete_Click">
+                        <Button.Resources>
+                            <ImageBrush x:Key="BtnNewsDeleteH" ImageSource="/Nighthold Launcher;component/Assets/NewsManager/news_delete_icon_h.png" Stretch="Uniform"/>
+                            <Style x:Key="ButtonStyleDelete" TargetType="{x:Type Button}">
+                                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                                <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="Padding" Value="1"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsDefaulted" Value="true">
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                    <Setter Property="Background" TargetName="border" Value="{DynamicResource BtnNewsDeleteH}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="/Nighthold Launcher;component/Assets/NewsManager/news_delete_icon_a.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

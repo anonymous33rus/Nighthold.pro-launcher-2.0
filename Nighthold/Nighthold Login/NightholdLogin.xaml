@@ -1,0 +1,29 @@
+﻿<Window x:Class="Nighthold_Login.NightholdLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:Nighthold_Login.Properties"
+        mc:Ignorable="d"
+        Title="Nighthold Login" Height="540" Width="390" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF1A1C23" Loaded="Window_Loaded" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid VerticalAlignment="Top" Height="25" MouseLeftButtonDown="Grid_MouseLeftButtonDown" Background="#00000000">
+            <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="MinimizeButton" Content="⎯" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#00000000" Foreground="#FF8D8D8D" FontFamily="Arial" FontSize="13" Style="{DynamicResource ControlBoxButtonMinimize}" Width="38" Padding="-4,0,0,0" Height="26" Click="MinimizeButton_Click"/>
+                <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#FF8D8D8D" BorderBrush="{x:Null}" Background="#00000000" Style="{DynamicResource ControlBoxButtonClose}" FontFamily="Arial" FontSize="14" Width="36" Padding="0" Height="26" Click="CloseButton_Click"/>
+            </StackPanel>
+        </Grid>
+        <Image x:Name="NightholdLogo" HorizontalAlignment="Center" Margin="140,46,140,0" VerticalAlignment="Top" Source="Assets/login_nighthold_login.png" Stretch="None"/>
+        <Label Content="{Binding Source={x:Static properties:Settings.Default}, Path=ServerName}" Margin="0,7,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="/Nighthold Login;component/Assets/Font/#Open Sans" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Логин" Margin="70,216,62,0" VerticalAlignment="Top" Foreground="White" FontFamily="/Nighthold Login;component/Assets/Font/#Open Sans" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30"/>
+        <TextBox x:Name="LoginUsernameBox" HorizontalAlignment="Left" Height="34" Margin="69,244,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" Width="260" Background="#FF021217" BorderBrush="#FF393B44" VerticalContentAlignment="Center" FontFamily="/Nighthold Login;component/Assets/Font/#Open Sans" FontSize="14" Padding="10,0" Style="{DynamicResource UsernameBox}" GotFocus="LoginUsernameBox_GotFocus" LostFocus="LoginUsernameBox_LostFocus"/>
+        <PasswordBox x:Name="LoginPasswordBox" HorizontalAlignment="Left" Margin="70,311,0,0" VerticalAlignment="Top" Width="260" Height="34" Background="#FF021217" BorderBrush="#FF393B44" Style="{DynamicResource PasswordBox}" VerticalContentAlignment="Center" Password="" Padding="10,0" FontFamily="Open Sans" FontSize="14" GotFocus="LoginPasswordBox_GotFocus" LostFocus="LoginPasswordBox_LostFocus" PasswordChanged="LoginPasswordBox_PasswordChanged"/>
+        <CheckBox x:Name="CheckBoxSaveLogin" Content="Запомнить" HorizontalAlignment="Left" Margin="69,360,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" FontFamily="/Nighthold Login;component/Assets/Font/#Open Sans" FontSize="14" Height="20" Style="{DynamicResource LoginCheckBox}" Width="260" Checked="CheckBoxSaveLogin_Checked" Unchecked="CheckBoxSaveLogin_Unchecked"/>
+        <Button x:Name="LoginButton" HorizontalAlignment="Left" Margin="69,422,0,0" VerticalAlignment="Top" Width="260" Height="40" Style="{DynamicResource LoginButton}" Click="Button_Click"/>
+        <Button x:Name="BtnNewAccount" Content="Регистрация" HorizontalAlignment="Left" Margin="69,471,0,0" VerticalAlignment="Top" Width="260" Style="{DynamicResource ButtonLink}" Click="BtnNewAccount_Click"/>
+        <Button x:Name="BtnResetPassword" Content="Забыли пароль ?" HorizontalAlignment="Left" Margin="69,499,0,0" VerticalAlignment="Top" Width="260" Style="{DynamicResource ButtonLink}" Click="BtnResetPassword_Click"/>
+        <TextBlock x:Name="ErrorBlock" HorizontalAlignment="Left" Margin="69,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Background="{x:Null}" Foreground="Red" FontFamily="/Nighthold Login;component/Assets/Font/#Open Sans" FontSize="14" TextAlignment="Center" TextTrimming="CharacterEllipsis" Height="40"/>
+        <Label Content="Пароль" Margin="71,281,61,0" VerticalAlignment="Top" Foreground="White" FontFamily="/Nighthold Login;component/Assets/Font/#Open Sans" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="34"/>
+
+    </Grid>
+</Window>

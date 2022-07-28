@@ -1,0 +1,19 @@
+﻿<ComboBoxItem x:Class="Nighthold_Launcher.FrontPages.CharactersMarketControls.Childs.CBoxCharacter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nighthold_Launcher.FrontPages.CharactersMarketControls.Childs"
+             mc:Ignorable="d" 
+             d:DesignWidth="250" Height="40" Loaded="ComboBoxItem_Loaded">
+    <StackPanel Orientation="Horizontal">
+        <Grid Margin="2">
+            <Image x:Name="RaceImg" Source="/Nighthold Launcher;component/Assets/Race Icons/Charactercreate-races_bloodelf-female.png"/>
+        </Grid>
+        <Image x:Name="ClassImg" Source="/Nighthold Launcher;component/Assets/Class Icons/Charactercreate-class_warlock.png" VerticalAlignment="Center" Width="15" Height="15" Margin="5,1,0,0"/>
+        <TextBlock x:Name="CharName" Text="Warlockpoint" HorizontalAlignment="Center" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Margin="5,0,0,0" Foreground="#FF8500AC" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans"/>
+        <Image Source="/Nighthold Launcher;component/Assets/CharactersMarket/arrow_up_25.png" Height="12" Margin="5,1,0,0"/>
+        <TextBlock Text="Level" HorizontalAlignment="Center" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Margin="5,0,0,0" Foreground="#FFC7C7C7" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans"/>
+        <TextBlock x:Name="CharLevel" Text="80" HorizontalAlignment="Center" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Margin="3,0,0,0" Foreground="#FFC7C7C7" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans"/>
+    </StackPanel>
+</ComboBoxItem>

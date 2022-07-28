@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nighthold Login", "Nighthold Login\Nighthold Login.csproj", "{47028A07-2188-4A3A-853F-B54C280CB4A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nighthold Launcher", "Nighthold Launcher\Nighthold Launcher.csproj", "{7A3F5DA7-8C1A-4C33-ABB0-620E14F91B1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHandler", "WebHandler\WebHandler.csproj", "{3EFFBDB1-5544-4EE2-AFA5-37C28516DC2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nighthold Updater", "Nighthold Updater\Nighthold Updater.csproj", "{AA5E5F56-E419-4CE0-A113-AF281475CBAB}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Nighthold Launcher Setup", "Nighthold Launcher Setup\Nighthold Launcher Setup.vdproj", "{934688BE-5131-49CA-BD74-C0725FF01F52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47028A07-2188-4A3A-853F-B54C280CB4A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47028A07-2188-4A3A-853F-B54C280CB4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47028A07-2188-4A3A-853F-B54C280CB4A9}.Debug|x64.ActiveCfg = Debug|x64
+		{47028A07-2188-4A3A-853F-B54C280CB4A9}.Debug|x64.Build.0 = Debug|x64
+		{47028A07-2188-4A3A-853F-B54C280CB4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47028A07-2188-4A3A-853F-B54C280CB4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47028A07-2188-4A3A-853F-B54C280CB4A9}.Release|x64.ActiveCfg = Release|x64
+		{47028A07-2188-4A3A-853F-B54C280CB4A9}.Release|x64.Build.0 = Release|x64
+		{7A3F5DA7-8C1A-4C33-ABB0-620E14F91B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A3F5DA7-8C1A-4C33-ABB0-620E14F91B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A3F5DA7-8C1A-4C33-ABB0-620E14F91B1A}.Debug|x64.ActiveCfg = Debug|x64
+		{7A3F5DA7-8C1A-4C33-ABB0-620E14F91B1A}.Debug|x64.Build.0 = Debug|x64
+		{7A3F5DA7-8C1A-4C33-ABB0-620E14F91B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A3F5DA7-8C1A-4C33-ABB0-620E14F91B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A3F5DA7-8C1A-4C33-ABB0-620E14F91B1A}.Release|x64.ActiveCfg = Release|x64
+		{7A3F5DA7-8C1A-4C33-ABB0-620E14F91B1A}.Release|x64.Build.0 = Release|x64
+		{3EFFBDB1-5544-4EE2-AFA5-37C28516DC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EFFBDB1-5544-4EE2-AFA5-37C28516DC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EFFBDB1-5544-4EE2-AFA5-37C28516DC2A}.Debug|x64.ActiveCfg = Debug|x64
+		{3EFFBDB1-5544-4EE2-AFA5-37C28516DC2A}.Debug|x64.Build.0 = Debug|x64
+		{3EFFBDB1-5544-4EE2-AFA5-37C28516DC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EFFBDB1-5544-4EE2-AFA5-37C28516DC2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EFFBDB1-5544-4EE2-AFA5-37C28516DC2A}.Release|x64.ActiveCfg = Release|x64
+		{3EFFBDB1-5544-4EE2-AFA5-37C28516DC2A}.Release|x64.Build.0 = Release|x64
+		{AA5E5F56-E419-4CE0-A113-AF281475CBAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5E5F56-E419-4CE0-A113-AF281475CBAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5E5F56-E419-4CE0-A113-AF281475CBAB}.Debug|x64.ActiveCfg = Debug|x64
+		{AA5E5F56-E419-4CE0-A113-AF281475CBAB}.Debug|x64.Build.0 = Debug|x64
+		{AA5E5F56-E419-4CE0-A113-AF281475CBAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5E5F56-E419-4CE0-A113-AF281475CBAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA5E5F56-E419-4CE0-A113-AF281475CBAB}.Release|x64.ActiveCfg = Release|x64
+		{AA5E5F56-E419-4CE0-A113-AF281475CBAB}.Release|x64.Build.0 = Release|x64
+		{934688BE-5131-49CA-BD74-C0725FF01F52}.Debug|Any CPU.ActiveCfg = Debug
+		{934688BE-5131-49CA-BD74-C0725FF01F52}.Debug|x64.ActiveCfg = Debug
+		{934688BE-5131-49CA-BD74-C0725FF01F52}.Release|Any CPU.ActiveCfg = Release
+		{934688BE-5131-49CA-BD74-C0725FF01F52}.Release|x64.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44F3D41E-6D00-47B0-BE7C-DE722E7699B1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Nighthold_Login.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Nighthold</Value>
+    </Setting>
+    <Setting Name="RegisterAccountUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://nighthold.pro/register</Value>
+    </Setting>
+    <Setting Name="ResetPasswordUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://nighthold.pro/forgot-password</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

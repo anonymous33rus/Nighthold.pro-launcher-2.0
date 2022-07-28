@@ -1,0 +1,3 @@
+[submodule "Nighthold-API"]
+	path = Nighthold-API
+	url = https://github.com/Nighthold-Launcher/Nighthold-API

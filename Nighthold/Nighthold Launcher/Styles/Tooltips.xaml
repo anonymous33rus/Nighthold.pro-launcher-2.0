@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="{x:Type ToolTip}" TargetType="ToolTip">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="HorizontalOffset" Value="90" />
+        <Setter Property="VerticalOffset" Value="5" />
+        <Setter Property="Placement" Value="Bottom"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="#FFc5c3c2" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Open Sans" />
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border Background="#FF21242D" CornerRadius="5" BorderBrush="#FF3B3E46" BorderThickness="1" Padding="10">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="3" Opacity="0.45" BlurRadius="7"/>
+                        </Border.Effect>
+                        <StackPanel>
+                            <TextBlock Foreground="#FF808287" Text="EXPANSION" FontWeight="Bold" FontSize="12" Margin="0,0,0,5"/>
+                            <Border BorderBrush="#FF3B3E46" BorderThickness="0,1,0,0" Margin="0,5,0,15" />
+                            <WrapPanel>
+                                <Image Source="/Nighthold Launcher;component/Assets/wow_icon_25x25.png" Margin="0,0,5,0" />
+                                <TextBlock Text="{TemplateBinding Content}" Margin="3,3,0,0"/>
+                            </WrapPanel>
+                            <Border BorderBrush="#FF3B3E46" BorderThickness="0,1,0,0" Margin="0,15,0,0" />
+                            <TextBlock Foreground="#FF9E9E9E" Text="Click to switch the expansion" FontSize="12" Margin="0,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="FocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

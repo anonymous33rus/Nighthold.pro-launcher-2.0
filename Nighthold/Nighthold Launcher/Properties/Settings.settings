@@ -1,0 +1,59 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Nighthold_Launcher.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="XMLDocumentUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://launcher.nighthold.pro/Config.xml</Value>
+    </Setting>
+    <Setting Name="BuyDPUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://nighthold.pro/dashboard/payment/add</Value>
+    </Setting>
+    <Setting Name="ServerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Nighthold</Value>
+    </Setting>
+    <Setting Name="WindowSizeWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="WindowSizeHeight" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="WindowMaximized" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="EnableNotificationPopups" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="StartLauncherWithComputer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="StartLauncherMinimizedToTray" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NotificationPopupsSettingId" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="CloseButtonSettingId" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="PlayButtonSettingId" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Start" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ClientPathsDefault" Type="System.Xml.XmlDocument" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ClientPaths&gt;
+  &lt;Expansion id="1" update_version="0" /&gt;
+  &lt;Expansion id="2" update_version="0" /&gt;
+  &lt;Expansion id="3" update_version="0" /&gt;
+  &lt;Expansion id="4" update_version="0" /&gt;
+  &lt;Expansion id="5" update_version="0" /&gt;
+  &lt;Expansion id="6" update_version="0" /&gt;
+  &lt;Expansion id="7" update_version="0" /&gt;
+  &lt;Expansion id="8" update_version="0" /&gt;
+  &lt;Expansion id="9" update_version="0" /&gt;
+&lt;/ClientPaths&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

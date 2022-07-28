@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Nighthold_Launcher.GMPanelControls.Childs.MuteLogRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nighthold_Launcher.GMPanelControls.Childs"
+             mc:Ignorable="d" d:DesignWidth="980" MinHeight="40" Foreground="White" Background="#FF17191D" Margin="0,0,0,15" Loaded="UserControl_Loaded">
+    <WrapPanel>
+        <StackPanel Height="40" VerticalAlignment="Top" Width="980" Orientation="Horizontal">
+            <TextBlock Text="Аккаунт:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="10,0,4,0" FontSize="14"/>
+            <TextBlock x:Name="AccName" Text="Unknown" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFD4DA4E" Margin="0,0,5,0" FontWeight="Bold" FontSize="14"/>
+            <Border Height="20" BorderBrush="#26CFCFCF" BorderThickness="1,0,1,0" Margin="10,0"/>
+            <TextBlock Text="Дата мута:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="5,0,4,0" FontSize="14"/>
+            <TextBlock x:Name="MuteDate" Text="Unknown" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFAEAEAE" FontSize="14"/>
+            <Border Height="20" BorderBrush="#26CFCFCF" BorderThickness="1,0,1,0" Margin="10,0"/>
+            <!--<TextBlock Text="Мут до:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="5,0,4,0" FontSize="14"/>
+            <TextBlock x:Name="UnmuteDate" Text="Unknown" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFAEAEAE" FontSize="14"/>
+            <Border Height="20" BorderBrush="#26CFCFCF" BorderThickness="1,0,1,0" Margin="10,0"/>-->
+            <TextBlock Text="Время мута:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="5,0,4,0" FontSize="14"/>
+            <TextBlock x:Name="MuteTime" Text="Unknown" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFDA4E4E" FontSize="14"/>
+            <Border Width="2" Height="20" BorderBrush="#26CFCFCF" BorderThickness="1,0,1,0" Margin="10"/>
+            <TextBlock Text="Мут выдал:" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="5,12.8,4,12.2" FontSize="14"/>
+            <TextBlock x:Name="MutedBy" Text="Unknown" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFAEAEAE" Margin="0,12.8,0,12.2" FontSize="14"/>
+        </StackPanel>
+        <Border BorderBrush="#26CFCFCF" Height="1" BorderThickness="0,1,0,0" Width="900" Margin="8,0,50,0"/>
+        <TextBlock Text="Причина:" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="Bold" Foreground="#FFCFCFCF" Margin="10,10,4,10" FontSize="14"/>
+        <TextBlock x:Name="MuteReason" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Text="N/A" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FFAEAEAE" Margin="0,10" Width="850" FontSize="14"/>
+    </WrapPanel>
+</UserControl>

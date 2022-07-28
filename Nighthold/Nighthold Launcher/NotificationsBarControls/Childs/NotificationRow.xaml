@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="Nighthold_Launcher.NotificationsBarControls.Childs.NotificationRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nighthold_Launcher.NotificationsBarControls.Childs"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="800" Width="805" Background="#FF1D1E23" Margin="0,0,0,10" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid x:Name="TitleBar" VerticalAlignment="Top" Height="40" Background="#FF3C3E46">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="520"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BtnLink" Grid.Column="0" Content="Access link" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#FF4A4E5F" BorderBrush="#FF5F5C5C" Foreground="#FF94DDFF" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Padding="10,3" FontWeight="SemiBold" Cursor="Hand" Click="BtnLink_Click" Style="{DynamicResource ButtonStyleAccessLink}">
+                <Button.Resources>
+                    <Style x:Key="ButtonStyleAccessLink" TargetType="{x:Type Button}">
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                        <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsDefaulted" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                        </Trigger>
+                                        <!--<Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                        </Trigger>-->
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Background" TargetName="border" Value="#FF595959"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="#FF4F4F4F"/>
+                                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                        </Trigger>
+                                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ColorAnimation To="#FF646772" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ColorAnimation To="#FF4A4E5F" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label x:Name="TagNew" Content="NEW" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="SemiBold" Background="LightGray" Margin="0" Padding="5,3,5,1"/>
+                <TextBlock x:Name="Subject" Grid.Column="1" Margin="10,0,0,0" Text="Subject" Foreground="#FFC9C9C9" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="16" TextAlignment="Center" TextTrimming="CharacterEllipsis" FontWeight="SemiBold" VerticalAlignment="Center"/>
+
+            </StackPanel>
+            <Button Grid.Column="1" x:Name="BtnMarkAsRead" Content="Пометить, как прочитанное" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,6,10,6" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Background="#FF4A4E5F" Foreground="#FFC9C9C9" FontWeight="Bold" Padding="10,3" BorderBrush="#FF5F5C5C" Cursor="Hand" Click="BtnMarkAsRead_Click" Style="{DynamicResource ButtonStyleMarkAsRead}" Grid.ColumnSpan="2" Width="247">
+                <Button.Resources>
+                    <Style x:Key="ButtonStyleMarkAsRead" TargetType="{x:Type Button}">
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                        <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsDefaulted" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                        </Trigger>
+                                        <!--<Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                        </Trigger>-->
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Background" TargetName="border" Value="#FF595959"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="#FF4F4F4F"/>
+                                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                        </Trigger>
+                                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ColorAnimation To="#FF646772" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ColorAnimation To="#FF4A4E5F" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </Grid>
+        <Image x:Name="NotificationBG" HorizontalAlignment="Left" Height="110" Margin="0,40,0,0" VerticalAlignment="Top" Width="805" Source="/Nighthold Launcher;component/Assets/Expansion Backgrounds/expansion_bg_wod.png" Stretch="UniformToFill"/>
+        <TextBlock x:Name="Message" Margin="25,62,25,0" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus neque a augue vestibulum gravida. Nullam lorem odio, tincidunt at tempus ut, accumsan ac purus. Praesent fermentum purus at risus tempor laoreet. Donec mi velit, condimentum non tincidunt at, pellentesque sit amet arcu. Integer sit amet tellus quam. Nulla sodales vitae libero nec hendrerit. Aliquam aliquet et purus id sodales. Donec leo lorem, commodo in mi quis, fermentum aliquet augue. Mauris non ligula at nulla cursus vestibulum. Aenean sagittis eros ac justo dapibus, vehicula iaculis arcu pellentesque. Morbi luctus erat tempor massa finibus, at congue odio bibendum. Mauris maximus mi nec nisi eleifend, eu fermentum mauris lobortis. Praesent sodales, odio non faucibus laoreet, tellus quam iaculis tortor, eget convallis magna libero nec neque. Nunc vel interdum purus. Maecenas consectetur molestie tincidunt." VerticalAlignment="Top" Foreground="#FFFFC47D" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" TextTrimming="CharacterEllipsis" Height="71"/>
+    </Grid>
+</UserControl>

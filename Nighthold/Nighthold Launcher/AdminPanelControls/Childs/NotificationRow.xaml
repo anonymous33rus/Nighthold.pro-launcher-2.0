@@ -1,0 +1,32 @@
+﻿<UserControl xmlns:Custom_Controls="clr-namespace:Nighthold_Launcher.Custom_Controls"  x:Class="Nighthold_Launcher.AdminPanelControls.Childs.NotificationRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nighthold_Launcher.AdminPanelControls.Childs"
+             mc:Ignorable="d" Width="940" Height="142" Loaded="UserControl_Loaded" Margin="0,0,0,10">
+    <Grid>
+        <Grid VerticalAlignment="Top" Height="40" Background="#3F000000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="Mention" Grid.Column="0" HorizontalAlignment="Left" Margin="10,0,0,0" Text="@Everyone" VerticalAlignment="Center" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Foreground="White" TextTrimming="CharacterEllipsis"/>
+            <TextBlock Grid.Column="1" x:Name="Subject" HorizontalAlignment="Center" Margin="0" Text="Subject" VerticalAlignment="Center" Foreground="#FF979797" FontSize="14" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
+                <Custom_Controls:SmoothFadeButton x:Name="BtnDelete" Width="18" Height="18"
+                                                  BackgroundDefault="/Nighthold Launcher;component/Assets/Buttons/btn_delete_notification_a.png"
+                                                  BackgroundDefaultStretch="Uniform"
+                                                  BackgroundHover="/Nighthold Launcher;component/Assets/Buttons/btn_delete_notification_h.png"
+                                                  BackgroundHoverStretch="Uniform"
+                                                  TransitionSpeed="0:0:0.3"
+                                                  Click="BtnDelete_Click"/>
+            </StackPanel>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="102" Margin="0,40,0,0" VerticalAlignment="Top" Width="940" Background="#BF0F0F0F">
+            <TextBlock x:Name="Message" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Message" VerticalAlignment="Top" Width="920" Height="82" FontSize="14" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" Foreground="#FF979797" TextTrimming="CharacterEllipsis" Padding="5,0"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

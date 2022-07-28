@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Nighthold_Launcher.GMPanelControls.Pages.PlayerInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nighthold_Launcher.GMPanelControls.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="514" d:DesignWidth="980" Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,21,0">
+            <ComboBox x:Name="CBRealms" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Style="{DynamicResource ComboBoxFlatStyle}" Height="28" SelectedIndex="0" Margin="0,0,10,0">
+                <ComboBoxItem Content="None"/>
+            </ComboBox>
+            <TextBox x:Name="SearchBox" TextWrapping="Wrap" Width="180" Margin="0" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" VerticalContentAlignment="Center" Padding="5,0,0,0" Background="#FF021217" BorderBrush="#FF393B44" Foreground="#FF6A6A6A" MaxLines="1" Style="{DynamicResource GMPanelSearchBox}" FontSize="14" KeyUp="SearchBox_KeyUp" Text="Имя игрока" GotFocus="SearchBox_GotFocus" LostFocus="SearchBox_LostFocus"/>
+            <Button x:Name="BtnSearch" Content="ПОИСК" Width="100" Margin="10,0,0,0" Background="#FF021217" BorderBrush="#FF393B44" Cursor="Hand" Foreground="#FFA8A8A8" Style="{DynamicResource GMPanelResetSearchButton}" Click="BtnResetSearch_Click" FontWeight="Bold"/>
+        </StackPanel>
+        <ScrollViewer Style="{DynamicResource ScrollViewerOne}" Margin="0,40,0,0">
+            <StackPanel x:Name="SPPlayerInfo" Orientation="Vertical">
+                <Label Content="User search to find a player.." Foreground="#FFA8A8A8" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14" Background="{x:Null}"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid x:Name="LoadingOverlay" Background="#E51A1C23" Visibility="Hidden">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+                <Label x:Name="LoadingOverlayPlaceholder" Background="{x:Null}" Foreground="#FF00A2E0" Content="Please wait, loading realms.." Margin="0,0,0,20" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="14"/>
+                <Image Source="/Nighthold Launcher;component/Assets/blue-circle-loader.png" Width="100" Height="100" RenderTransformOrigin="0.5, 0.5" Visibility="Visible">
+                    <Image.RenderTransform>
+                        <RotateTransform x:Name="noFreeze2" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(RotateTransform.Angle)"
+                                        To="360" Duration="0:0:1" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

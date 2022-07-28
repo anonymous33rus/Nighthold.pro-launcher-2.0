@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="Nighthold_Launcher.FrontPages.MainPageControls.Childs.Article"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="230" d:DesignWidth="355" Loaded="UserControl_Loaded" MinHeight="230" MinWidth="355" Margin="0,0,0,25">
+    <UserControl.Resources>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <!--<Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>-->
+                            </Trigger>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="#FF2A303E" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Button.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="#FF272B35" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Border x:Name="ArticleBorder" CornerRadius="5" Background="#FF272B35">
+        <WrapPanel Orientation="Vertical">
+            <Grid MinWidth="355" MinHeight="145">
+                <Image x:Name="ArticleImage" Stretch="UniformToFill"/>
+            </Grid>
+            <Button HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF272B35" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource ButtonStyle1}">
+                <StackPanel>
+                    <Button Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Left" Click="Button_Click" Padding="12,10,10,5" Style="{DynamicResource ButtonTitle}">
+                        <Button.Resources>
+                            <Style x:Key="ButtonTitle" TargetType="{x:Type Button}">
+                                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                                <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="Padding" Value="1"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsDefaulted" Value="true">
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                        <TextBlock x:Name="ArticleTitle" TextWrapping="WrapWithOverflow" Text="Title" VerticalAlignment="Top" Foreground="#FFDEDEDE" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="15" FontWeight="Bold" TextTrimming="CharacterEllipsis" Margin="0" MaxHeight="42" Cursor="Hand" HorizontalAlignment="Left"/>
+                    </Button>
+                    <TextBlock x:Name="ArticleDate" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Foreground="#FF717171" FontFamily="/Nighthold Launcher;component/Assets/Font/#Open Sans" FontSize="13" TextTrimming="CharacterEllipsis" MaxHeight="40" Margin="15,10,13,10"/>
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+    </Border>
+</UserControl>
